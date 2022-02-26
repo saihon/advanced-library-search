@@ -10,31 +10,27 @@ If you want to search for bookmarks, start with `b:` or `bookmark:` and you want
 
 ### Bookmark
 
-#### Help
+Help
 ```
 b: -h
 ```
 
-#### Default Search
-Attempts match to the Title and URL.
+Default search. Attempts match to the Title and URL.
 ```
 b: something
 ```
 
-#### Apostrophes
 Words containing apostrophes must be enclosed in double quotes.
 ```
 b: "It's show time!"
 ```
 
-#### Wildcard
 When don't use the regular expression, can use an asterisk as a wildcard. Will probably match to `www.example.com` and `blog.example.com`
 ```
 b: *.example.com
 ```
 
-#### Fuzzy-search
-If the words are separated by a space, fuzzy search.
+Fuzzy-search. If the words are separated by a space, fuzzy search.
 ```
 b: hello world
 b: 'hello world'
@@ -46,29 +42,29 @@ b: hello*world
 b: hello\sworld -r
 ```
 
-#### Title
+Search by Title
 ```
 b: -t 'hello world'
 ```
 
-#### URL
+Search by URL
 ```
 b: -u example.com
 ```
 
-#### Use different search terms for title and URL
+Use different search terms for title and URL
 ```
 b: -t hello -u example.com
 ```
 
-#### Regular expression
+Regular expression
 ```
 b: -r ^hello-[0-9]
 b: -r -t ^hello-[0-9]
 b: -r -t ^hello-[0-9] -u [^.]+\.example\.com
 ```
 
-#### Date added
+Date added
 ```
 Before
 b: -d -2021
@@ -80,8 +76,7 @@ Between
 b: -d 2021/12/1-2022/1/1
 ```
 
-#### Folder path
-Can use like a 'glob' pattern. `**`, `*`, `?`, `[]`
+Folder path. Can use like a 'glob' pattern. `**`, `*`, `?`, `[]`
 ```
 b: -f /foo/*/baz/**
 ```
@@ -92,12 +87,12 @@ b: -f /foo/*/baz/**
 
 Almost the same as the example of bookmark. so, the differences are indicate.
 
-#### Help
+Help
 ```
 h: -h
 ```
 
-#### Visit count
+Visit count
 ```
 Visited more than 5 times.
 h: -c 5
@@ -106,7 +101,6 @@ Visited less than 5 times.
 h: -c -5
 ```
 
-#### Max results
 The maximum number of results to retrieve. The default is set to 500.
 ```
 h: -m 1000
