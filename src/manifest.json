@@ -1,0 +1,36 @@
+{
+  "name": "Advanced library search",
+  "version": "0.1",
+  "description": "Provides an advanced search for bookmarks and histories.",
+  "icons": {
+    "128": "icons/icon-128.png",
+    "48": "icons/icon-48.png",
+    "19": "icons/icon-19.png",
+    "16": "icons/icon-16.png"
+  },
+  "permissions": [
+    "bookmarks",
+    "history"
+  ],
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": "icons/icon-19.png",
+    "default_title": "Advanced Library Search (Ctrl+Shift+0)"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+0",
+        "windows": "Ctrl+Shift+0",
+        "linux": "Ctrl+Shift+0",
+        "mac": "Command+Shift+0",
+        "chromeos": "Ctrl+Shift+0"
+      }
+    }
+  },
+  "manifest_version": 2
+}

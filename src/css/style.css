@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+body {
+    background-color: #2b2a33;
+}
+
+#search-box {
+    width: 80%;
+    min-width: 680px;
+    margin: 0 auto;
+}
+    #search-box > form > div {
+        width: 80%;
+        height: 30px;
+        margin: 0 auto;
+    }
+        #search-box > form > div > input[type="text"] {
+            width: 100%;
+            height: 30px;
+            padding: 0 10px;
+            border-radius: 3px;
+            border: 1px solid #8f8f9d;
+            background-color: #38383d;
+            color: #fefefe;
+            box-sizing: border-box;
+        }
+
+#result-box {
+    width: 98%;
+    min-width: 680px;
+    height: 84vh;
+    margin: 4px auto 0;
+    border: 1px solid gray;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+}
+
+    .invisible {
+        display: none;
+    }
+
+    #help {
+        margin: 10px auto;
+        width: 90%;
+        color: #cccccc;
+    }
+
+    #error {
+        margin: 10px 20px;
+        color: #ff0000;
+    }
+
+    .item {
+        width: 98%;
+        margin: 3px auto;
+        padding: 2px 6px;
+        border-radius: 3px;
+        border: 1px solid #8f8f9d;
+        box-sizing: border-box;
+        position: relative;
+        pointer-events : none;
+        background-color: #38383d;
+        overflow-x: hidden;
+    }
+
+        .item-favicon {
+            /* vertical-align: bottom; */
+        }
+
+        .item-link {
+            font-size: 12px;
+            position: absolute;
+            top: 3px;
+            bottom: 0;
+            right: 0;
+            left: 28px;
+            vertical-align: middle;
+            text-decoration: none;
+            pointer-events : auto;
+            color: #cccccc;
+            white-space: nowrap;
+        }
+
+        .item-link:hover, .item-link:focus {
+            text-decoration: underline;
+            color: #eeeeee;
+        }
+
+        .item-info {
+            font-size: 10px;
+            padding: 0 0 2px;
+            color: #cdcdcd;
+        }
+
+            .item-info-url {
+                padding: 0;
+                margin: 0 0 2px;
+                white-space: nowrap;
+            }
+
+            .item-info-data {
+                padding: 1px 6px;
+                margin-right: 2px;
+                border-radius: 3px;
+                border: 1px solid #8f8f9d;
+            }
