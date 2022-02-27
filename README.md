@@ -4,9 +4,18 @@ Provides an advanced search for browser bookmarks and histories.
 
 <br/>
 
+# Install
+
+Installation via ADD-ONS Mozilla org  
+https://addons.mozilla.org/en-US/firefox/addon/advanced-library-search/
+
+<br/>
+
 # Usage
 
 If you want to search for bookmarks, start with `b:` or `bookmark:` and you want to search for history, start with `h:` or `history:`. Also, can be show each search options by appending `-h` after these prefixes.
+
+<br/>
 
 ### Bookmark
 
