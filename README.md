@@ -156,3 +156,8 @@ Almost the same as the example of bookmark. so, the differences are indicate.
     ```
     npm run debug
     ```
+
+4. Test
+    ```
+    npm test
+    ```
