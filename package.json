@@ -1,7 +1,13 @@
 {
   "scripts": {
-    "webpack": "npx webpack --watch",
-    "firefox": "cd ./dist && npx web-ext run -u 'about:debugging#/runtime/this-firefox'",
+    "webpack": "npx webpack",
+    "webpack-watch": "npx webpack --watch",
+    "debug": "cd ./dist && npx web-ext run -u 'about:debugging#/runtime/this-firefox'",
+    "clean": "rm -rf ./dist *.zip *.xpi",
+    "build-firefox": "cd ./dist && zip -r ../advanced-library-search.xpi icons js index.html manifest.json",
+    "build-chrome": "zip -r advanced-library-search.zip ./dist",
+    "build-all": "npm run build-firefox && npm run build-chrome",
+    "compress": "zip -r source-code.zip ./src ./package.json ./tsconfig.json ./webpack.config.js ./README.md",
     "test": "ts-node node_modules/jest/bin/jest.js"
   },
   "devDependencies": {
