@@ -63,7 +63,7 @@ If you want to search for bookmarks, start with `b:` or `bookmark:` and you want
 
 * Use different search terms for title and URL
     ```
-    b: -t hello -u example.com
+    b: -t 'hello world' -u example.com
     ```
 
 * Regular expression
@@ -128,14 +128,14 @@ Almost the same as the example of bookmark. so, the differences are indicate.
     npm i
     ```
 
-3. Run webpack
+2. Run webpack
     ```
     npm run webpack
     ```
 
-2. Build addons/extensions
+3. Build addons/extensions
     ```
-    npm run build-all
+    npm run build-firefox
     ```
 
 <br/>
