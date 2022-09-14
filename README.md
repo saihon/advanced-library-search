@@ -1,6 +1,6 @@
 # advanced-library-search
 
-Provides an advanced search for browser bookmarks and histories.   
+Provides an advanced search for browser bookmarks and histories.
 
 <br/>
 
@@ -19,76 +19,87 @@ If you want to search for bookmarks, start with `b:` or `bookmark:` and you want
 
 ### Bookmark
 
-* Help
-    ```
-    b: -h
-    ```
+- Help
 
-* Default search. Attempts match to the Title and URL.
-    ```
-    b: something
-    ```
+  ```
+  b: -h
+  ```
 
-* Words containing apostrophes must be enclosed in double quotes.
-    ```
-    b: "It's show time!"
-    ```
+- Default search. Attempts match to the Title and URL.
 
-* When don't use the regular expression, can use an asterisk as a wildcard. Will probably match to `www.example.com` and `blog.example.com`
-    ```
-    b: *.example.com
-    ```
+  ```
+  b: something
+  ```
 
-* Fuzzy-search. If the words are separated by a space, fuzzy search.
-    ```
-    b: hello world
-    b: 'hello world'
-    ```
+- Words containing apostrophes must be enclosed in double quotes.
 
-* AND-Search. Use an asterisk or regular expression instead of a space.
-    ```
-    b: hello*world
-    b: hello\sworld -r
-    ```
+  ```
+  b: "It's show time!"
+  ```
 
-* Search by Title
-    ```
-    b: -t 'hello world'
-    ```
+- When don't use the regular expression, can use an asterisk as a wildcard. Will probably match to `www.example.com` and `blog.example.com`
 
-* Search by URL
-    ```
-    b: -u example.com
-    ```
+  ```
+  b: *.example.com
+  ```
 
-* Use different search terms for title and URL
-    ```
-    b: -t 'hello world' -u example.com
-    ```
+- Fuzzy-search. If the words are separated by a space, fuzzy search.
 
-* Regular expression
-    ```
-    b: -r ^hello-[0-9]
-    b: -r -t ^hello-[0-9]
-    b: -r -t ^hello-[0-9] -u [^.]+\.example\.com
-    ```
+  ```
+  b: hello world
+  b: 'hello world'
+  ```
 
-* Date added
-    ```
-    Before
-    b: -d -2021
+- AND-Search. Use an asterisk or regular expression instead of a space.
 
-    After
-    b: -d 2021/10/1
+  ```
+  b: hello*world
+  b: hello\sworld -r
+  ```
 
-    Between
-    b: -d 2021/12/1-2022/1/1
-    ```
+- Search by Title
 
-* Folder path. Can use like a 'glob' pattern. `**`, `*`, `?`, `[]`
-    ```
-    b: -f /foo/*/baz/**
-    ```
+  ```
+  b: -t 'hello world'
+  ```
+
+- Search by URL
+
+  ```
+  b: -u example.com
+  ```
+
+- Use different search terms for title and URL
+
+  ```
+  b: -t 'hello world' -u example.com
+  ```
+
+- Regular expression
+
+  ```
+  b: -r ^hello-[0-9]
+  b: -r -t ^hello-[0-9]
+  b: -r -t ^hello-[0-9] -u [^.]+\.example\.com
+  ```
+
+- Date added
+
+  ```
+  Before
+  b: -d -2021
+
+  After
+  b: -d 2021/10/1
+
+  Between
+  b: -d 2021/12/1-2022/1/1
+  ```
+
+- Folder path. Can use like a 'glob' pattern. `**`, `*`, `?`, `[]`
+  ```
+  b: -f /foo/*/baz/**
+  ```
 
 <br/>
 
@@ -96,24 +107,26 @@ If you want to search for bookmarks, start with `b:` or `bookmark:` and you want
 
 Almost the same as the example of bookmark. so, the differences are indicate.
 
-* Help
-    ```
-    h: -h
-    ```
+- Help
 
-* Visit count
-    ```
-    Visited more than 5 times.
-    h: -c 5
+  ```
+  h: -h
+  ```
 
-    Visited less than 5 times.
-    h: -c -5
-    ```
+- Visit count
 
-* The maximum number of results to retrieve. The default is set to 500.
-    ```
-    h: -m 1000
-    ```
+  ```
+  Visited more than 5 times.
+  h: -c 5
+
+  Visited less than 5 times.
+  h: -c -5
+  ```
+
+- The maximum number of results to retrieve. The default is set to 500.
+  ```
+  h: -m 1000
+  ```
 
 <br/>
 
@@ -124,40 +137,39 @@ Almost the same as the example of bookmark. so, the differences are indicate.
 ### Build procedure
 
 1. Download dependencies
-    ```
-    npm i
-    ```
 
-2. Run webpack
-    ```
-    npm run webpack
-    ```
+   ```
+   npm i
+   ```
 
-3. Build addons/extensions
-    ```
-    npm run build-firefox
-    ```
+2. Build addons
+   ```
+   npm run build-firefox
+   ```
 
 <br/>
 
 ### Debug procedure
 
 1. Download dependencies
-    ```
-    npm i
-    ```
+
+   ```
+   npm i
+   ```
 
 2. Run webpack(watch)
-    ```
-    npm run webpack-watch
-    ```
+
+   ```
+   npm run webpack-watch
+   ```
 
 3. Debugging
-    ```
-    npm run debug
-    ```
+
+   ```
+   npm run debug
+   ```
 
 4. Test
-    ```
-    npm test
-    ```
+   ```
+   npm test
+   ```
