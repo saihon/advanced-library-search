@@ -1,6 +1,6 @@
 {
   "name": "Advanced Library Search",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Provides an advanced search for bookmarks and histories.",
   "icons": {
     "128": "icons/icon-128.png",
