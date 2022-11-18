@@ -130,6 +130,24 @@ Almost the same as the example of bookmark. so, the differences are indicate.
 
 <br/>
 
+### Use as a search engine
+
+In firefox, you can use it as a search engine by adding it to your bookmarks as follows.
+
+- bookmark
+
+  ```
+  moz-extension://[ADDON-ID]/index.html?t=b&q=%s
+  ```
+
+- history
+
+  ```
+  moz-extension://[ADDON-ID]/index.html?t=h&q=%s
+  ```
+
+<br/>
+
 # Development
 
 <br/>
