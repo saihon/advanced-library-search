@@ -1,0 +1,481 @@
+/* style.css - For index.html */
+
+/* --- Reset & Base Styles --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 15px;
+    min-height: 100vh;
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- Search Bar Area --- */
+.search-bar-container {
+    display: flex;
+    align-items: stretch; /* Ensure items have same height */
+    margin-bottom: 15px;
+    padding: 1px;
+    border-radius: 6px;
+    background-color: var(--search-bar-bg-color);
+    border: 1px solid var(--search-bar-border-color);
+}
+
+#searchModeToggle {
+    font-size: 1.2em;
+    padding: 0 10px;
+    cursor: pointer;
+    user-select: none;
+    border-right-width: 1px; /* Separator */
+    border-right-style: solid;
+    border-radius: 4px 0 0 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px; /* Ensure a minimum width */
+}
+
+#searchInput {
+    flex-grow: 1;
+    padding: 12px 15px;
+    font-size: 1.1em;
+    border: none; /* Border handled by parent .search-bar-container */
+    /* Theme-specific background, color for input text */
+    /* border-radius handled by parent */
+}
+#searchInput:focus {
+    outline: none; /* Focus ring handled by parent or JS if needed */
+}
+
+#optionsButton {
+    background: none;
+    border: none; /* Border handled by parent */
+    border-radius: 0 4px 4px 0;
+    border-left-width: 1px; /* Separator */
+    border-left-style: solid;
+    font-size: 1.8em;
+    padding: 0 12px 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 46px;
+    /* Theme-specific color, border-color (for separator), hover background */
+    /* border-radius handled by parent */
+}
+
+/* --- Results Area --- */
+#resultsContainer {
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 6px;
+    /* Theme-specific background, border */
+}
+
+#resultsContainer .result-item, #replacePreviewArea .preview-content {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.result-item {
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* Theme-specific background, border-bottom */
+}
+.result-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+.result-item.selected {
+    /* Theme-specific selected background */
+}
+
+.item-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+}
+.item-header img.favicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+.item-header a.title {
+    font-weight: 600;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.05em;
+    text-decoration: none;
+    outline: none;
+    /* Theme-specific color */
+}
+
+.item-header a.title:hover, .item-header a.title:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+
+.item-url {
+    font-size: 0.9em;
+    word-break: break-all;
+    margin-bottom: 0px;
+    padding-left: 26px;
+    /* Theme-specific color */
+}
+
+.item-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+    margin-top: 4px;
+    padding-left: 26px;
+}
+.item-meta-info {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+    /* Theme-specific color */
+}
+
+.action-button { /* Updated styles for action buttons */
+    background-color: transparent;
+    border: 1px solid transparent; /* Keep border for layout consistency, but make it transparent */
+    color: var(--text-color-secondary);
+    padding: 4px 8px; /* Slightly increased padding */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em; /* Slightly smaller font size */
+    margin-left: 8px; /* Space between buttons */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.action-button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
+    border-color: var(--button-hover-border-color);
+}
+
+/* --- Loading Messages & Error Messages & Help Text --- */
+.loading-message {
+  padding: 20px;
+  text-align: center;
+  color: #555;
+  font-style: italic;
+}
+
+.error-message {
+    padding: 12px 15px; /* Consistent padding */
+    border-radius: 4px;
+    margin: 10px 0;
+    font-weight: 500;
+    /* Theme-specific background, color, border */
+}
+
+.help-text-in-results {
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    line-height: 1.7;
+    /* Theme-specific background, border, color */
+}
+.help-text-in-results h2 {
+    margin-top: 0;
+    font-size: 1.4em;
+    margin-bottom: 15px; /* Spacing for h2 */
+    /* Theme-specific color */
+}
+.help-text-in-results p { margin-bottom: 10px; }
+.help-text-in-results ul { list-style-type: none; padding-left: 15px; }
+.help-text-in-results ul li { margin-bottom: 6px; }
+.help-text-in-results code {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.9em;
+    /* Theme-specific background, color */
+}
+
+/* --- Bookmark Edit Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Darker overlay */
+}
+.modal-content {
+    margin: 10% auto;
+    padding: 25px 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 740px; /* Slightly wider modal */
+    position: relative;
+    /* Theme-specific background, border, shadow */
+}
+.close-button {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    /* Theme-specific color */
+}
+.close-button:hover, .close-button:focus { text-decoration: none; /* Theme-specific hover color */ }
+.modal-content h3 { margin-top: 0; margin-bottom: 20px; font-size: 1.3em; /* Theme-specific color */ }
+.modal-content div { margin-bottom: 15px; }
+.modal-content label { display: block; margin-bottom: 5px; font-weight: 500; /* Theme-specific color */ }
+.modal-content input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 1em;
+    /* Theme-specific border, background, color */
+}
+.modal-content .modal-actions {
+    display: flex;
+    justify-content: space-between; /* Save is left、Delete is right*/
+    align-items: center;
+    margin-top: 25px;
+}
+.modal-content .modal-actions button {
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+}
+
+.modal-content button.delete-button {
+    /* Theme-specific background, color for destructive action */
+}
+
+/* --- History Clear All Button --- */
+#clearAllHistoryButtonContainer {
+    margin: 4px 0 10px 0; /* Consistent margins */
+    text-align: right;
+}
+#clearAllHistoryButton {
+    padding: 8px 15px;
+    font-size: 0.95em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    /* Theme-specific background, color, border for destructive action */
+}
+
+/* --- Bookmark Replace Section --- */
+#batchReplaceToggleButtonContainer {
+}
+#toggleReplaceUIButton {
+    padding: 8px 15px;
+    font-size: 0.95em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    /* Theme-specific background, color, border */
+}
+
+#bookmarkReplaceContainer {
+    margin-top: 0; /* Remove top margin when inside modal */
+    padding: 8px; /* Keep internal padding */
+    border-radius: 6px; /* Theme-specific border, background */
+    max-height: 300px; /* Adjust as needed, e.g., 60vh or a fixed pixel value */
+    overflow-y: auto; /* Show scrollbar when content exceeds max-height */
+}
+#bookmarkReplaceContainer h3 { margin-top: 0; margin-bottom: 15px; font-size: 1.2em; /* Theme-specific color */ }
+#bookmarkReplaceContainer input[type="text"] {
+    width: calc(50% - 25px); /* Adjusted for padding/margin */
+    padding: 10px 12px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    /* Theme-specific border, background, color */
+}
+#bookmarkReplaceContainer input[type="text"]:last-of-type { margin-right: 0; }
+#bookmarkReplaceContainer button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: 500;
+    /* Theme-specific border, background, color */
+}
+#bookmarkReplaceContainer button:last-child { margin-right: 0; }
+.replace-options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.replace-options label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+#replacePreviewArea { margin-top: 15px; }
+#replacePreviewArea .preview-item {
+    padding: 10px; margin-bottom: 10px; border-radius: 4px;
+    font-size: 0.9em; line-height: 1.5;
+    /* Theme-specific border, background */
+}
+#replacePreviewArea .preview-item p { margin: 4px 0; display: flex; align-items: flex-start; }
+#replacePreviewArea .preview-item .preview-label {
+    display: inline-block;
+    min-width: 10px;
+    font-weight: bold;
+    padding-right: 5px; /* Theme-specific color */
+}
+#replacePreviewArea .preview-item .preview-content { flex-grow: 1; word-break: break-all; }
+.highlight-find { font-weight: bold; padding: 1px 2px; border-radius: 2px; }
+.highlight-replace { font-weight: bold; padding: 1px 2px; border-radius: 2px; }
+#replacePreviewArea .preview-item button { margin-top: 5px; padding: 4px 8px; font-size: 0.9em; }
+
+.options-panel.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.45);
+}
+
+.options-panel-content.modal-content {
+    margin: 8% auto;
+    padding: 20px 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    /* Theme-specific background, border, shadow */
+}
+
+.options-panel-content h2 {
+    font-size: 1.6em;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    display: flex;
+    align-items: center;
+    /* Theme-specific color, border-color */
+}
+.options-panel-content .options-title-icon {
+    font-size: 1.2em; /* icon size*/
+    margin-right: 10px;
+}
+
+.options-panel-content section {
+    margin-bottom: 20px;
+}
+.options-panel-content section h3 {
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    /* Theme-specific color */
+}
+
+.options-panel-content form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.options-panel-content form label.checkbox-label {
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+.options-panel-content form input[type="radio"],
+.options-panel-content form input[type="checkbox"] {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.options-panel-content form input[type="number"] {
+    padding: 8px 10px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 1em;
+    width: 100px;
+    margin-left: 5px;
+    /* Theme-specific border, background, color */
+}
+.options-panel-content .setting-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.options-panel-content .setting-item label {
+    margin-bottom: 0; /* Remove bottom margin for inline labels */
+    margin-right: 10px;
+}
+/* Styling for the parent of a disabled input within the options panel (e.g., debounceTimeInput's parent) */
+/* This targets the label when the parent div of the input has class 'disabled' */
+.options-panel-content .setting-item.disabled label {
+  color: var(--text-color-disabled);
+  opacity: 0.75; /* Slightly dim the label more clearly */
+}
+/* Styling for the disabled debounceTimeInput itself */
+/* This targets the input when it has the 'disabled' attribute */
+.options-panel-content input[type="number"]:disabled,
+#debounceTimeInput:disabled { /* Making it more specific for debounceTimeInput if needed, or general for disabled numbers */
+  background-color: var(--input-bg-color-disabled);
+  color: var(--text-color-disabled);
+  border-color: var(--input-border-color-disabled);
+  cursor: not-allowed;
+}
+.options-panel-content .description {
+    font-size: 0.85em;
+    margin-top: 3px;
+    margin-left: 25px;
+    /* Theme-specific color */
+}
+
+.options-panel-content .status-message {
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    font-weight: 500;
+    text-align: center;
+    /* Theme-specific success background, color, border */
+}

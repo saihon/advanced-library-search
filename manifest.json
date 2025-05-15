@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "advanced-library-search",
+  "version": "2.0",
+  "description": "Search bookmarks and history with advanced options.",
+  "permissions": ["bookmarks", "history", "storage", "tabs"],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "19": "icons/icon-19.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_title": "Advanced Library Search"
+  },
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+O",
+        "mac": "Command+Alt+O"
+      },
+      "description": "Open Advanced Library Search"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: https://www.google.com https://*.gstatic.com;"
+  },
+  "host_permissions": ["https://www.google.com/", "https://*.gstatic.com/"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{ab6adf34-3801-49ce-b4bc-0bad294a04e8}",
+      "strict_min_version": "115.0"
+    }
+  }
+}

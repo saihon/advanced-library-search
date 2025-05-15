@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Light Theme
+   ========================================================================== */
+body.light-theme {
+  --background-color: #f4f7f6;
+  --text-color: #2c3e50;
+  --text-color-secondary: #495057;
+  --link-color: #007bff;
+  --link-hover-color: #0056b3;
+  --input-bg-color: #fff;
+  --input-text-color: #495057;
+  --input-border-color: #ced4da;
+  --input-focus-border-color: #80bdff;
+  --button-bg-color: #007bff;
+  --button-text-color: #fff;
+  --button-border-color: #007bff;
+  --button-hover-bg-color: #e9ecef;
+  --button-hover-text-color: #212529;
+  --button-hover-border-color: #ced4da;
+  --search-bar-bg-color: #f8f9fa;
+  --search-bar-border-color: #d1d5db;
+  --item-bg-color: #fff;
+  --item-border-color: #e9ecef;
+  --item-hover-bg-color: #f8f9fa;
+  --item-selected-bg-color: #e6f2ff;
+  --item-selected-border-color: #b3d7ff;
+  --modal-bg-color: #fff;
+  --modal-border-color: #dee2e6;
+  --modal-backdrop-color: rgba(0, 0, 0, 0.4);
+  --scrollbar-thumb-color: #c1c1c1;
+  --scrollbar-track-color: #f1f1f1;
+  --text-color-disabled: #6c757d;
+  --input-bg-color-disabled: #e9ecef;
+  --input-border-color-disabled: #ced4da;
+  --highlight-find-bg: rgba(255, 220, 0, 0.5);
+  --highlight-replace-bg: rgba(144, 238, 144, 0.6);
+  --focused-link-outline-color: #007bff;
+  --danger-color: #dc3545;
+  --danger-hover-color: #c82333;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --icon-filter: none;
+}
+
+body.light-theme .search-bar-container { border: 1px solid #dce4e3; }
+body.light-theme #searchModeToggle {
+    background-color: #e9ecef; color: #495057; border-color: #dce4e3; /* Separator color */
+}
+body.light-theme #searchModeToggle.active { background-color: #cfe2ff; color: #004085; }
+body.light-theme #searchInput { background-color: #ffffff; color: #2c3e50; }
+body.light-theme #searchInput:focus { /* Optionally add focus to parent .search-bar-container */
+    /* box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); */
+}
+body.light-theme .search-bar-container:focus-within { /* Focus ring on the whole group */
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,.25);
+}
+body.light-theme #optionsButton {
+    color: #495057; background-color: #e9ecef; border-color: #dce4e3; /* Separator color */
+}
+body.light-theme #optionsButton:hover { background-color: #d8dfe3; }
+
+body.light-theme #resultsContainer { background-color: #ffffff; border: 1px solid #e1e8e7; }
+body.light-theme .result-item { background-color: #ffffff; border-bottom: 1px solid #eef3f2; }
+body.light-theme .result-item.selected { background-color: #e9f5ff; }
+body.light-theme .result-item a.title { border-bottom: 1px solid transparent; color: #0069d9; }
+body.light-theme .result-item a.title:hover,
+body.light-theme .result-item a.title.focused-link
+ { border-bottom: 1px solid #0069d9; }
+body.light-theme .item-url { color: #5a6570; }
+body.light-theme .item-meta-info { color: #778899; }
+body.light-theme .item-actions button { background-color: #e9ecef; border-color: #ced4da; color: #495057; }
+
+body.light-theme .error-message { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+body.light-theme .help-text-in-results { background-color: #f8f9fa; border: 1px solid #dee2e6; color: #212529; }
+body.light-theme .help-text-in-results h2 { color: #343a40; }
+body.light-theme .help-text-in-results code { background-color: #e9ecef; color: #212529; }
+
+body.light-theme .modal-content { background-color: #fefefe; border: 1px solid #ccc; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+body.light-theme .close-button { color: #aaa; }
+body.light-theme .close-button:hover { color: #333; }
+body.light-theme .modal-content h3 { color: #333; }
+body.light-theme .modal-content label { color: #555; }
+body.light-theme .modal-content input[type="text"] { background-color: #fff; color: #333; border: 1px solid #ccc; }
+body.light-theme .modal-content input[type="text"]:focus { border-color: #007bff; box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); }
+body.light-theme .modal-content button { background-color: #007bff; color: white; }
+body.light-theme .modal-content button#saveBookmarkChangesButton {
+    background-color: #007bff;
+    color: white;
+}
+body.light-theme .modal-content button#saveBookmarkChangesButton:hover {
+    background-color: #0069d9;
+}
+body.light-theme .modal-content button.delete-button {
+    background-color: #dc3545; /* Red for delete */
+    color: white;
+}
+body.light-theme .modal-content button.delete-button:hover {
+    background-color: #c82333;
+}
+
+body.light-theme #clearAllHistoryButton { background-color: #dc3545; color: white; border: 1px solid #dc3545; }
+body.light-theme #clearAllHistoryButton:hover { background-color: #c82333; border-color: #bd2130; }
+
+body.light-theme #toggleReplaceUIButton {
+    background-color: #6c757d; /* Secondary button color */
+    color: white;
+    border: 1px solid #6c757d;
+}
+body.light-theme #toggleReplaceUIButton:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+body.light-theme #bookmarkReplaceContainer { background-color: transparent; border: none; }
+body.light-theme #bookmarkReplaceContainer h3 { color: #343a40; }
+body.light-theme #bookmarkReplaceContainer input[type="text"] { background-color: #fff; color: #495057; border: 1px solid #ced4da; }
+body.light-theme #bookmarkReplaceContainer button {  background-color: #569cd6; border-color: #569cd6; color: #ffffff; }
+body.light-theme #bookmarkReplaceContainer button#applyAllReplaceButton { background-color: #6a9955; border-color: #6a9955; }
+body.light-theme #replacePreviewArea .preview-item { background-color: #fff; border: 1px dashed #e0e0e0; }
+body.light-theme #replacePreviewArea .preview-item .preview-label { color: #495057; }
+body.light-theme .highlight-find { background-color: #fff3cd; color: #594602; }
+body.light-theme .highlight-replace { background-color: #d4edda; color: #10421c; }
+body.light-theme #replacePreviewArea .preview-item strong.preview-change-success { color: #155724; }
+body.light-theme #replacePreviewArea .preview-item strong.preview-change-error { color: #721c24; }
+
+/* --- Light Theme specific for Options Panel --- */
+body.light-theme .options-panel-content.modal-content {
+    background-color: #fdfdfd;
+    border: 1px solid #d8d8d8;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+body.light-theme .options-panel-content h2 { color: #333; border-bottom-color: #eee; }
+body.light-theme .options-panel-content section h3 { color: #444; }
+body.light-theme .options-panel-content form label { color: #555; }
+body.light-theme .options-panel-content form input[type="number"] {
+    background-color: #fff; color: #333; border: 1px solid #ccc;
+}
+body.light-theme .options-panel-content .description { color: #666; }
+body.light-theme .options-panel-content .status-message {
+    background-color: #e7f3ff; color: #004085; border: 1px solid #b8daff;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Base CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- Theme CSS files with data attributes -->
+    <link rel="stylesheet" type="text/css" href="css/theme-light.css" data-theme-id="light" data-theme-name="Light Theme" data-theme-class="light-theme">
+    <link rel="stylesheet" type="text/css" href="css/theme-dark.css" data-theme-id="dark" data-theme-name="Dark Theme" data-theme-class="dark-theme">
+    <!-- Add new themes here, e.g.: -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/theme-sepia.css" data-theme-id="sepia" data-theme-name="Sepia Theme" data-theme-class="sepia-theme"> -->
+    <title>Advanced Library Search</title>
+</head>
+<body>
+    <div class="container">
+        <div class="search-bar-container">
+            <span id="searchModeToggle" title="Toggle search mode (Enter to search / Type to search)">↵</span>
+            <input type="text" id="searchInput" placeholder="Search (e.g., b: term, h: term, -h for help)">
+            <button id="optionsButton" title="Open Settings">⚙</button>
+        </div>
+
+        <!-- Clear all history button -->
+        <div id="clearAllHistoryButtonContainer" style="display: none;">
+          <button id="clearAllHistoryButton">Delete All Displayed History Items</button>
+        </div><!-- Clear all history button - END -->
+
+        <div id="resultsContainer"></div>
+        <!-- Batch replace bookmarks -->
+        <div id="batchReplaceToggleButtonContainer" style="text-align: right; margin-top: 10px; display: none;">
+          <button id="toggleReplaceUIButton">Batch Replace Bookmarks...</button>
+        </div>
+    </div> <!-- container - END -->
+
+    <!-- Batch Replace Modal Structure -->
+    <div id="batchReplaceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeBatchReplaceModal">&times;</span>
+            <div id="bookmarkReplaceContainer">
+                <!-- Existing Batch Replace UI content goes here -->
+                <h3>Batch Replace Bookmarks</h3>
+                <div class="replace-options">
+                  <label>
+                    <input type="radio" id="replaceInUrlCheckbox" name="replaceScope" value="url" checked>
+                    URL
+                  </label>
+                  <label>
+                    <input type="radio" id="replaceInTitleCheckbox" name="replaceScope" value="title">
+                    Title
+                  </label>
+                </div>
+                <input type="text" id="replaceFindInput" placeholder="Find text (in title or URL)">
+                <input type="text" id="replaceWithInput" placeholder="Replace with">
+                <button id="applyAllReplaceButton" style="display:none;">Apply All Visible Changes</button>
+                <div id="replacePreviewArea"></div>
+            </div>
+        </div>
+    </div><!-- Batch Replace Modal Structure - END -->
+
+    <!-- Bookmark Edit Modal -->
+    <div id="editBookmarkModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-button" id="closeEditModalButton">×</span>
+            <h3>Edit Bookmark</h3>
+            <input type="hidden" id="editBookmarkId">
+            <div>
+                <label for="editBookmarkTitle">Title:</label>
+                <input type="text" id="editBookmarkTitle" name="title">
+            </div>
+            <div>
+                <label for="editBookmarkUrl">URL:</label>
+                <input type="text" id="editBookmarkUrl" name="url">
+            </div>
+            <div class="modal-actions">
+                <button id="saveBookmarkChangesButton">Save Changes</button>
+                <button id="deleteBookmarkFromModalButton" class="delete-button">Delete Bookmark</button>
+            </div>
+        </div>
+    </div><!-- Bookmark Edit Modal - END -->
+
+    <!-- Options Panel -->
+    <div id="inPageOptionsPanel" class="options-panel modal-overlay" style="display: none;">
+        <div class="options-panel-content modal-content"> <span class="close-button" id="closeOptionsPanelButton">&times;</span>
+            <h2><span class="options-title-icon">⚙</span> Settings</h2>
+
+            <section id="themeSettingsSection">
+                <h3>Theme</h3>
+                <div class="setting-item">
+                    <label for="themeSelector">Select Theme:</label>
+                    <select id="themeSelector"></select>
+                </div>
+            </section>
+
+            <hr>
+            <section id="searchSettingsSection">
+                <h3>Search Behavior</h3>
+                <form id="searchSettingsForm">
+                    <div>
+                        <input type="checkbox" id="searchOnEnterInput" name="searchOnEnter">
+                        <label for="searchOnEnterInput" class="checkbox-label">Search on Enter key only</label>
+                        <p class="description">Disable auto-search on type. Search will only trigger when Enter is pressed.</p>
+                    </div>
+                    <div class="setting-item">
+                        <label for="debounceTimeInput">Search debounce time (ms):</label>
+                        <input type="number" id="debounceTimeInput" name="debounceTime" min="0" max="5000" step="50">
+                        <p class="description">Time to wait after typing before starting search (when "Search on Enter" is OFF).</p>
+                    </div>
+                </form>
+            </section>
+            <p id="optionsStatusMessage" class="status-message" style="display:none;"></p>
+        </div>
+    </div><!-- Options Panel - END -->
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

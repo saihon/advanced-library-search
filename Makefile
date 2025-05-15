@@ -1,23 +1,40 @@
-NAME := advanced-library-search
-TARGET = all
-SRCZIP := source-code.zip
+# Makefile for Advanced Library Search Firefox Extension
 
-.PHONY: build clean build-all build-chrome build-firefox source-code
+# --- Variables ---
 
-build: build-$(TARGET)
+# Output filename for the packaged extension
+TARGET = advanced-library-search.zip
+# You can use .xpi if you prefer, Firefox accepts both for temporary loading
+# TARGET = advanced-library-search.xpi
 
-build-all: build-firefox build-chrome
+# Source files and directories to include in the package
+SOURCES = manifest.json index.html css/ js/ icons/
 
-build-firefox:
-	@cd ./dist && \
-	zip -r ../$(NAME).xpi icons js index.html manifest.json
+# --- Targets ---
 
-build-chrome:
-	zip -r $(NAME).zip dist
+# Default target: build the extension
+all: build
 
-# for source code submission for firefox
-source-code:
-	zip -r $(SRCZIP) ./src ./package.json ./tsconfig.json ./webpack.config.js
+# Build the extension package (zip file)
+# -r: Recurse into directories
+# -FS: Sync filesystem contents (useful for reproducibility if files change)
+# -9: Use highest compression level
+build: $(TARGET)
 
+# zip option -x Exclude OS specific hidden files
+$(TARGET): $(SOURCES)
+	@echo "Packaging extension into $(TARGET)..."
+	@# Ensure the target directory exists if needed (not strictly needed here)
+	@# mkdir -p $(dir $(TARGET))
+	@# Using zip command to create the archive
+	@zip -r -FS $(TARGET) $(SOURCES) -x '*.DS_Store' -x '*._*'
+	@echo "Extension packaged successfully: $(TARGET)"
+
+# Clean up the build artifact
 clean:
-	rm -rf ./dist ./node_modules $(SRCZIP) $(NAME).zip $(NAME).xpi
+	@echo "Cleaning up build artifacts..."
+	@rm -f $(TARGET)
+	@echo "Cleanup complete."
+
+# Declare targets that are not actual files
+.PHONY: all build clean

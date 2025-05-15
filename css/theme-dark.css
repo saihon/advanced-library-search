@@ -1,0 +1,154 @@
+/* ==========================================================================
+   Dark Theme
+   ========================================================================== */
+
+body.dark-theme {
+  --background-color: #1e2022;
+  --text-color: #e2e8f0;
+  --text-color-secondary: #a0aec0;
+  --link-color: #63b3ed;
+  --link-hover-color: #90cdf4;
+  --input-bg-color: #2d3748;
+  --input-text-color: #e2e8f0;
+  --input-border-color: #4a5568;
+  --input-focus-border-color: #63b3ed;
+  --button-bg-color: #3182ce;
+  --button-text-color: #ffffff;
+  --button-border-color: #3182ce;
+  --button-hover-bg-color: #2b6cb0;
+  --button-hover-text-color: #ffffff;
+  --button-hover-border-color: #2c5282;
+  --search-bar-bg-color: #2d3748;
+  --search-bar-border-color: #4a5568;
+  --item-bg-color: #2d3748;
+  --item-border-color: #4a5568;
+  --item-hover-bg-color: #4a5568;
+  --item-selected-bg-color: #2c5282;
+  --item-selected-border-color: #4299e1;
+  --modal-bg-color: #2d3748;
+  --modal-border-color: #4a5568;
+  --modal-backdrop-color: rgba(0, 0, 0, 0.6);
+  --scrollbar-thumb-color: #555;
+  --scrollbar-track-color: #333;
+  --text-color-disabled: #7a828a;
+  --input-bg-color-disabled: #2c3034;
+  --input-border-color-disabled: #454c52;
+  --highlight-find-bg: rgba(255, 230, 100, 0.6);
+  --highlight-replace-bg: rgba(100, 200, 100, 0.7);
+  --focused-link-outline-color: #63b3ed;
+  --danger-color: #e53e3e;
+  --danger-hover-color: #c53030;
+  --success-color: #48bb78;
+  --warning-color: #ecc94b;
+  --icon-filter: invert(1) hue-rotate(180deg);
+}
+
+body.dark-theme {
+    background-color: #282c34;
+    color: #abb2bf;
+
+    --button-hover-bg-color: #4a5568; /* Darker gray for hover */
+    --button-hover-text-color: #e2e8f0; /* Lighter text for hover */
+    --button-hover-border-color: #5a6578;
+
+   /* Disabled form elements colors for dark theme */
+    --text-color-disabled: #7a828a; /* Adjusted for dark theme readability */
+    --input-bg-color-disabled: #2c3034;
+    --input-border-color-disabled: #454c52;
+}
+
+body.dark-theme .search-bar-container { border: 1px solid #4b515e; }
+body.dark-theme #searchModeToggle {
+    background-color: #3a3f4b; color: #c8cdd4; border-color: #4b515e; /* Separator color */
+}
+body.dark-theme #searchModeToggle.active { background-color: #4a505c; color: #82c0ff; }
+body.dark-theme #searchInput { background-color: #21252b; color: #d0d8e2; } /* Slightly darker input */
+body.dark-theme #searchInput:focus {
+    /* box-shadow: 0 0 0 0.2rem rgba(86,156,214,.25); */
+}
+body.dark-theme .search-bar-container:focus-within {
+    border-color: #569cd6;
+    box-shadow: 0 0 0 2px rgba(86,156,214,.25);
+}
+body.dark-theme #optionsButton {
+    color: #c8cdd4; background-color: #3a3f4b; border-color: #4b515e; /* Separator color */
+}
+body.dark-theme #optionsButton:hover { background-color: #4f5663; }
+
+body.dark-theme #resultsContainer { background-color: #323842; border: 1px solid #424854; }
+body.dark-theme .result-item { background-color: #3a3f4b; border-bottom: 1px solid #424854; }
+body.dark-theme .result-item.selected { background-color: #4a505c; }
+body.dark-theme .result-item a.title { border-bottom: 1px solid transparent; color: #61afef; }
+body.dark-theme .result-item a.title:hover,
+body.dark-theme .result-item a.title.focused-link { border-bottom: 1px solid #61afef; }
+body.dark-theme .item-url { color: #8892a0; }
+body.dark-theme .item-meta-info { color: #9ca5b3; }
+body.dark-theme .item-actions button { background-color: #4f5663; border-color: #606774; color: #c8cdd4; }
+
+body.dark-theme .error-message { background-color: #5e3c40; color: #ff8c8c; border: 1px solid #7a4f53; }
+body.dark-theme .help-text-in-results { background-color: #323842; border: 1px solid #424854; color: #abb2bf; }
+body.dark-theme .help-text-in-results h2 { color: #d0d8e2; }
+body.dark-theme .help-text-in-results code { background-color: #4f5663; color: #d0d8e2; }
+
+body.dark-theme .modal-content { background-color: #3a3f4b; border: 1px solid #4b515e; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+body.dark-theme .close-button { color: #9ca5b3; }
+body.dark-theme .close-button:hover { color: #d0d8e2; }
+body.dark-theme .modal-content h3 { color: #d0d8e2; }
+body.dark-theme .modal-content label { color: #abb2bf; }
+body.dark-theme .modal-content input[type="text"] { background-color: #282c34; color: #d0d8e2; border: 1px solid #4b515e; }
+body.dark-theme .modal-content input[type="text"]:focus { border-color: #569cd6; box-shadow: 0 0 0 0.2rem rgba(86,156,214,.25); }
+body.dark-theme .modal-content button { background-color: #569cd6; color: #ffffff; }
+body.dark-theme .modal-content button#saveBookmarkChangesButton {
+    background-color: #569cd6;
+    color: #ffffff;
+}
+body.dark-theme .modal-content button#saveBookmarkChangesButton:hover {
+    background-color: #458cc6;
+}
+body.dark-theme .modal-content button.delete-button {
+    background-color: #c82333; /* Darker red */
+    color: white;
+}
+body.dark-theme .modal-content button.delete-button:hover {
+    background-color: #bd2130;
+}
+body.dark-theme #clearAllHistoryButton { background-color: #c82333; color: white; border: 1px solid #c82333; }
+body.dark-theme #clearAllHistoryButton:hover { background-color: #bd2130; border-color: #b21f2d; }
+
+body.dark-theme #toggleReplaceUIButton {
+    background-color: #5a6268; /* Darker secondary */
+    color: #e0e0e0;
+    border: 1px solid #5a6268;
+}
+body.dark-theme #toggleReplaceUIButton:hover {
+    background-color: #4f565e;
+    border-color: #494e54;
+}
+body.dark-theme #bookmarkReplaceContainer { background-color: transparent; border: none; }
+body.dark-theme #bookmarkReplaceContainer h3 { color: #d0d8e2; }
+body.dark-theme #bookmarkReplaceContainer input[type="text"] { background-color: #3a3f4b; color: #d0d8e2; border: 1px solid #4b515e; }
+body.dark-theme #bookmarkReplaceContainer button { background-color: #569cd6; border-color: #569cd6; color: #ffffff; }
+body.dark-theme #bookmarkReplaceContainer button#applyAllReplaceButton { background-color: #6a9955; border-color: #6a9955; }
+body.dark-theme #replacePreviewArea .preview-item { background-color: #3a3f4b; border: 1px dashed #505866; }
+body.dark-theme #replacePreviewArea .preview-item .preview-label { color: #abb2bf; }
+body.dark-theme .highlight-find { background-color: #5c522a; color: #f0e68c; }
+body.dark-theme .highlight-replace { background-color: #2a5c33; color: #a7d9a7; }
+body.dark-theme #replacePreviewArea .preview-item strong.preview-change-success { color: #8cc178; }
+body.dark-theme #replacePreviewArea .preview-item strong.preview-change-error { color: #ff8c8c; }
+
+/* --- Dark Theme specific for Options Panel --- */
+body.dark-theme .options-panel-content.modal-content {
+    background-color: #30343a;
+    border: 1px solid #4b515e;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+body.dark-theme .options-panel-content h2 { color: #e0e0e0; border-bottom-color: #4b515e; }
+body.dark-theme .options-panel-content section h3 { color: #d0d0d0; }
+body.dark-theme .options-panel-content form label { color: #c0c0c0; }
+body.dark-theme .options-panel-content form input[type="number"] {
+    background-color: #282c34; color: #d0d8e2; border: 1px solid #4b515e;
+}
+body.dark-theme .options-panel-content .description { color: #a0a0a0; }
+body.dark-theme .options-panel-content .status-message {
+    background-color: #324e32; color: #a7d9a7; border: 1px solid #4a6f4a;
+}
