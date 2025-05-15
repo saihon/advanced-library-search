@@ -36,7 +36,7 @@
   "host_permissions": ["https://www.google.com/", "https://*.gstatic.com/"],
   "browser_specific_settings": {
     "gecko": {
-      "id": "{ab6adf34-3801-49ce-b4bc-0bad294a04e8}",
+      "id": "{6384303f-f389-448c-af9d-1c1165a9c45e}",
       "strict_min_version": "115.0"
     }
   }
