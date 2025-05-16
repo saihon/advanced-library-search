@@ -197,14 +197,16 @@ function applyFilters(node, generalSearchTerm, options) {
         match = false;
       }
     } else {
-      const gstLower = generalSearchTerm.toLowerCase();
-      if (
-        !(
-          (node.title || "").toLowerCase().includes(gstLower) ||
-          (node.url || "").toLowerCase().includes(gstLower)
-        )
-      ) {
-        match = false;
+      // The browser.bookmark.search API only searches the first space-separated word in a string.
+      // So herewe try to match the remaining words. In that case should do .slice(1) but...
+      const searchTerms = generalSearchTerm.toLocaleLowerCase().split(/\s+/);
+      const titleLower = node.title ? node.title.toLocaleLowerCase() : "";
+      const urlLower = node.url ? node.url.toLocaleLowerCase() : "";
+      for (const s of searchTerms) {
+        if (!titleLower.includes(s) && !urlLower.includes(s)) {
+          match = false;
+          break;
+        }
       }
     }
   }
@@ -383,7 +385,10 @@ async function getAndFilterBookmarksUsingApi(generalSearchTerm, options) {
   // - queryForAPI.url: Matches the bookmark URL verbatim (exact match).
   // For partial title/url matches, it's often better to use queryForAPI.query and then filter results client-side if needed.
   if (!options.regex && generalSearchTerm) {
-    queryForAPI.query = generalSearchTerm;
+    // Searching with the entire generalSearchTerm (including spaces) results in an exact match.
+    // For keyword matching, searches only for the first space-delimited word.
+    const searchTerm = generalSearchTerm.split(/\s+/, 1).at(0);
+    queryForAPI.query = searchTerm;
   } else if (
     options.titleSearchTerm &&
     typeof options.titleSearchTerm === "string"
