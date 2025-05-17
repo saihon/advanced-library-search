@@ -198,7 +198,7 @@ function applyFilters(node, generalSearchTerm, options) {
       }
     } else {
       // The browser.bookmark.search API only searches the first space-separated word in a string.
-      // So herewe try to match the remaining words. In that case should do .slice(1) but...
+      // So here try to match the remaining words.
       const searchTerms = generalSearchTerm.toLocaleLowerCase().split(/\s+/);
       const titleLower = node.title ? node.title.toLocaleLowerCase() : "";
       const urlLower = node.url ? node.url.toLocaleLowerCase() : "";
@@ -387,8 +387,10 @@ async function getAndFilterBookmarksUsingApi(generalSearchTerm, options) {
   if (!options.regex && generalSearchTerm) {
     // Searching with the entire generalSearchTerm (including spaces) results in an exact match.
     // For keyword matching, searches only for the first space-delimited word.
-    const searchTerm = generalSearchTerm.split(/\s+/, 1).at(0);
-    queryForAPI.query = searchTerm;
+    const parts = generalSearchTerm.split(/\s+/);
+    const firstTerm = parts.at(0);
+    generalSearchTerm = parts.slice(1).join(" "); // The result is always a string.
+    queryForAPI.query = firstTerm;
   } else if (
     options.titleSearchTerm &&
     typeof options.titleSearchTerm === "string"
